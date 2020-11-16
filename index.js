@@ -1,10 +1,12 @@
 const MAX_NUMBER = 100
 const MIN_NUMBER = 0
+let guess
 
 let guessRange = 50
 
 document.getElementById('too-high-btn').addEventListener('click', function () {
     guessRange /= 2
+    guessRange = Math.max(guessRange, 1)
     guess += guessRange
     updateMessage()
     
@@ -13,6 +15,7 @@ document.getElementById('too-high-btn').addEventListener('click', function () {
 
 document.getElementById('too-low-btn').addEventListener('click', function () {
     guessRange /= 2
+    guessRange = Math.max(guessRange, 1)
     guess += guessRange
     updateMessage()
     
@@ -25,7 +28,7 @@ document.getElementById('is-correct-btn').addEventListener('click', function () 
 
 
 function updateMessage() {
-    setMessage(`Is it ${guess}?`)
+    setMessage(`Is it ${Math.floor(guess)}?`)
 }
 
 
